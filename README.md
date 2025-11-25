@@ -10,7 +10,7 @@
 ![image](https://img.shields.io/badge/VITE-323330?style=for-the-badge&logo=vite&logoColor=646CFF)
 ![image](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=FFFFFF)
 ![image](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=FFFFFF)
-![image](https://img.shields.io/badge/VIBE-purple?style=for-the-badge&label=.CODING)
+![image](https://img.shields.io/badge/CODING-purple?style=for-the-badge&label=VIBE)
 
 ----------
 
