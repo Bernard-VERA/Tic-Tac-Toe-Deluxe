@@ -11,6 +11,7 @@
 ![image](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=FFFFFF)
 ![image](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=FFFFFF)
 ![image](https://img.shields.io/badge/CODING-purple?style=for-the-badge&label=VIBE)
+![image](https://img.shields.io/badge/VERCEL-lightgrey?style=for-the-badge&logo=vercel&logoColor=black)
 
 ----------
 
