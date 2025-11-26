@@ -50,7 +50,7 @@ Ce projet a été conçu pour allier simplicité, performance et plaisir de jeu,
 ----------
 
 <p align="center" width="100%">
-    <img width="90%" src="https://github.com/Bernard-VERA/Tic-Tac-Toe-Deluxe/blob/main/public/readme-image.jpg"> 
+    <img width="90%" src="https://github.com/Bernard-VERA/Tic-Tac-Toe-Deluxe/blob/main/public/readme_image.jpg"> 
 </p>
 
 ----------
