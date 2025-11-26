@@ -48,6 +48,8 @@ Ce projet a été conçu pour allier simplicité, performance et plaisir de jeu,
 
 🤖 Copilot : pour l’assistance intelligente dans la génération de code et l’optimisation du projet
 
+ ▲ Vercel : pour un déploiement simple, rapide et performant dans le cloud
+
 ----------
 
 <p align="center" width="100%">
