@@ -1,4 +1,5 @@
 import "../index.css"
+// Import du composant principal du jeu
 import TicTacToe from "../components/TicTacToe.jsx";
 import "../components/TicTacToe.css";
 

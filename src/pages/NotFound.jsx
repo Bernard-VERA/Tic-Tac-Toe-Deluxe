@@ -1,4 +1,4 @@
-// Cette page d'erreur est autonome, le style css est inclus directement.
+// Cette page d'erreur est autonome, le style css est inclus directement via des objets JavaScript (CSS-in-JS).
 import { Link } from "react-router-dom";
 
 const wrapperStyle = {
