@@ -1,14 +1,16 @@
 import "./TicTacToe.css";
 
+// Composant GameStatus : affiche l'état actuel de la partie
 export default function GameStatus({
-  currentPlayer,
-  winner,
-  onRestart,
-  isAITurn,
-  difficulty,
+  currentPlayer, // Indique le joueur dont c'est le tour ("X" ou "O")
+  winner,        // Indique le gagnant ("X", "O") ou "draw" en cas d'égalité
+  onRestart,     // Fonction déclenchée lorsqu'on clique sur "Nouvelle partie"
+  isAITurn,      // Indique si c'est au tour de l'IA
+  difficulty,    // Indique le niveau de difficulté sélectionné
 }) {
-  let status = null;
-
+  let status = null; // Contiendra le message affiché à l'écran
+  //  la partie se termine par une égalité
+  // ou sinon, un joueur à gagné (X ou O)
   if (winner === "draw") {
     status = <span className="tictactoe-status-draw">Égalité 🤝</span>;
   } else if (winner) {
@@ -17,9 +19,10 @@ export default function GameStatus({
         Victoire : {winner === "X" ? "❌" : "⭕"} !
       </span>
     );
+    // mode IA (pas "simple") et c'est à l'IA de jouer
   } else if (difficulty !== "simple" && isAITurn) {
     status = <span className="tictactoe-status-ia">Tour de l’IA...</span>;
-  } else {
+  } else { // Sinon, affichage du joueur courant
     status = (
       <span>
         Au tour de&nbsp;
@@ -35,7 +38,7 @@ export default function GameStatus({
       </span>
     );
   }
-
+  // Affichage final du message d'état
   return (
     <div className="tictactoe-status-container">
       <div className="tictactoe-status">{status}</div>

@@ -84,6 +84,7 @@ export default function TicTacToe() {
 
       const [i, j] = aiMove;
       // Copie du plateau et placement du coup IA
+      // i = numéro de la ligne (0, 1, 2), j = numéro de la colonne (0, 1, 2)
       const newBoard = board.map((r) => [...r]);
       if (!newBoard[i][j]) {
         newBoard[i][j] = "O";
