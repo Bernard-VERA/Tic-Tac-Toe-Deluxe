@@ -1,3 +1,6 @@
+/* =======================
+   STRUCTURE GLOBALE DU JEU
+   =========================*/
 .tictactoe-root {
   display: flex;
   flex-direction: column;
@@ -11,6 +14,10 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* =======================
+   PLATEAU DE JEU (grille 3x3)
+   =========================*/
 .tictactoe-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -25,6 +32,10 @@
   height: 360px;
   max-width: 100%;
 }
+
+/* =======================
+   CASES DU PLATEAU
+   =========================*/
 .tictactoe-cell {
   width: 100%;
   height: 100%;
@@ -39,12 +50,14 @@
   transition: background 0.15s, color 0.15s, border 0.18s, transform 0.15s;
   user-select: none;
   cursor: pointer;
-outline: none;  
+  outline: none;  
 }
+/* Focus visible lors de la navigation au clavier */
 .tictactoe-cell:focus-visible {
   outline: 2px solid black;
   outline-offset: -2px;
 }
+/* Couleurs selon le contenu de la case */
 .tictactoe-cell.cell-x {
   color: #1d4ed8;
 }
@@ -54,11 +67,13 @@ outline: none;
 .tictactoe-cell.cell-empty {
   color: #64748b;
 }
+/* Effet hover (uniquement si la case est jouable) */
 .tictactoe-cell.cell-hover:not(.cell-disabled):hover {
   background: #f1f5f9;
   transform: scale(1.05);
   border-color: #8a90ff;
 }
+/* Case désactivée (fin de partie ou IA) */
 .tictactoe-cell.cell-disabled,
 .tictactoe-cell:disabled {
   cursor: not-allowed;
@@ -66,6 +81,9 @@ outline: none;
   opacity: 0.7;
 }
 
+/* =======================
+   BOUTONS DE DIFFICULTÉ
+   =========================*/
 .tictactoe-difficulty-selector {
   display: flex;
   gap: 16px;
@@ -102,6 +120,10 @@ outline: none;
   font-weight: 400;
   margin-top: 2px;
 }
+
+/* =======================
+   STATUT DU JEU (tour, victoire, égalité, IA)
+   =========================*/
 .tictactoe-status-container {
   display: flex;
   flex-direction: column;
@@ -115,6 +137,7 @@ outline: none;
   font-weight: 500;
   text-align: center;
 }
+/* États du statut */
 .tictactoe-status-draw {
   color: #ca8500;
   font-weight: bold;
@@ -133,6 +156,10 @@ outline: none;
 .tictactoe-status-player-o {
   color: #dc2626;
 }
+
+/* =======================
+   BOUTON NOUVELLE PARTIE
+   =========================*/
 .tictactoe-restart-btn {
   display: block;
   width: fit-content;
@@ -151,6 +178,9 @@ outline: none;
   border: 1.5px solid #404fbe;
 }
 
+/* =======================
+   RESPONSIVE DESIGN
+   =========================*/
 @media (max-width: 500px) {
   .tictactoe-board {
     width: 95vw;

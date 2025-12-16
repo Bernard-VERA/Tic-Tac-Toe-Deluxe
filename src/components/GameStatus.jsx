@@ -39,6 +39,7 @@ export default function GameStatus({
     );
   }
   // Affichage final du message d'état
+  // le tabindex permet la navigation au clavier
   return (
     <div className="tictactoe-status-container">
       <div className="tictactoe-status">{status}</div>
