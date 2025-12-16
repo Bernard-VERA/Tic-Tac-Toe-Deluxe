@@ -39,10 +39,10 @@
   transition: background 0.15s, color 0.15s, border 0.18s, transform 0.15s;
   user-select: none;
   cursor: pointer;
-  outline: none;
+outline: none;  
 }
 .tictactoe-cell:focus-visible {
-  outline: 3px solid black;
+  outline: 2px solid black;
   outline-offset: -2px;
 }
 .tictactoe-cell.cell-x {
