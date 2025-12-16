@@ -42,7 +42,7 @@ export default function GameStatus({
   return (
     <div className="tictactoe-status-container">
       <div className="tictactoe-status">{status}</div>
-      <button onClick={onRestart} className="tictactoe-restart-btn">
+      <button onClick={onRestart} className="tictactoe-restart-btn" tabIndex="0">
         Nouvelle partie
       </button>
     </div>
