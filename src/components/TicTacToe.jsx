@@ -23,6 +23,24 @@ export default function TicTacToe() {
   const [winner, setWinner] = useState(null);
   const [difficulty, setDifficulty] = useState("simple"); // simple | moyen | pro
   const [isAITurn, setIsAITurn] = useState(false);
+  const [isLandscape, setIsLandscape] = useState(false);
+
+   useEffect(() => { 
+    const checkOrientation = () => {
+     const isLandscapeMode = window.matchMedia("(orientation: landscape)").matches;
+     const isMobileOrTablet = window.matchMedia("(max-width: 1024px)").matches;
+     setIsLandscape(isLandscapeMode && isMobileOrTablet);
+     };
+
+     checkOrientation();
+     window.addEventListener("resize", checkOrientation);
+     window.addEventListener("orientationchange", checkOrientation);
+     
+     return () => {
+      window.removeEventListener("resize", checkOrientation);
+      window.removeEventListener("orientationchange", checkOrientation);
+     };
+     }, []);
 
   // Réinitialise complètement la partie
   const handleRestart = () => {
@@ -116,23 +134,31 @@ export default function TicTacToe() {
   // Affichage du niveau de difficulté
   // Affichage du statut du jeu (tour, gagnant, bouton restart)
   // Affichage du plateau de jeu
+ 
   return (
-    <div className="tictactoe-root">
-      <DifficultySelector value={difficulty} onChange={handleDifficultyChange} />
-      <GameStatus
-        currentPlayer={currentPlayer}
-        winner={winner}
-        onRestart={handleRestart}
-        isAITurn={isAITurn}
-        difficulty={difficulty}
-      />
-      <Board
-        board={board}
-        onCellClick={handleCellClick}
-        winner={winner}
-        difficulty={difficulty}
-        currentPlayer={currentPlayer}
-      />
-    </div>
-  );
+     <div className={`tictactoe-root ${isLandscape ? "landscape-mode" : ""}`}>
+       <div className="tictactoe-content">
+        {/* Zone de gauche (portrait) ou colonne gauche (paysage) */}
+          <div className="tictactoe-controls">
+            <DifficultySelector value={difficulty} onChange={handleDifficultyChange} />
+            <GameStatus
+              currentPlayer={currentPlayer}
+              winner={winner}
+              onRestart={handleRestart}
+              isAITurn={isAITurn}
+              difficulty={difficulty}
+            />
+          </div>
+          {/* Plateau */}
+          <div className="tictactoe-board-container">
+            <Board 
+             board={board}
+             onCellClick={handleCellClick}
+             winner={winner}
+             difficulty={difficulty}
+             currentPlayer={currentPlayer}
+            />
+          </div>
+       </div>
+     </div> );
 }
