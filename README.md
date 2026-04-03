@@ -48,7 +48,9 @@ Ce projet a été conçu pour allier simplicité, performance et plaisir de jeu,
 
 🤖 Copilot : pour l’assistance intelligente dans la génération de code et l’optimisation du projet
 
- ▲ Vercel : pour un déploiement simple, rapide et performant dans le cloud
+ ▲ Vercel : pour un déploiement simple, rapide et performant dans le cloud  
+
+Vous pouvez voir le projet en cliquant ici : <a href="https://bv-tic-tac-toe-deluxe.vercel.app/" target="_blank">Tic-Tac-Toe Deluxe</a>  
 
 ----------
 
