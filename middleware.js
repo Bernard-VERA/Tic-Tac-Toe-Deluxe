@@ -3,11 +3,16 @@ export const config = {
 };
 
 export async function middleware(request) {
-  const response = await fetch(request.url);
+  // Récupère la vraie réponse (HTML, JS, CSS…)
+  const originalResponse = await fetch(request);
 
-  const newHeaders = new Headers(response.headers);
+  // Copie les headers existants
+  const newHeaders = new Headers(originalResponse.headers);
 
+  // Désactive le cache CDN pour forcer l’exécution du middleware
   newHeaders.set("Cache-Control", "no-store");
+
+  // Ajoute tes headers de sécurité
   newHeaders.set(
     "Strict-Transport-Security",
     "max-age=63072000; includeSubDomains; preload"
@@ -24,8 +29,9 @@ export async function middleware(request) {
     "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';"
   );
 
-  return new Response(response.body, {
-    status: response.status,
+  // Renvoie la réponse originale avec les nouveaux headers
+  return new Response(originalResponse.body, {
+    status: originalResponse.status,
     headers: newHeaders,
   });
 }
