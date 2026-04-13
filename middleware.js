@@ -2,24 +2,30 @@ export const config = {
   matcher: "/:path*",
 };
 
-export function middleware(request) {
-  const response = new Response(null, { status: 200 });
+export async function middleware(request) {
+  const response = await fetch(request.url);
 
-  response.headers.set(
+  const newHeaders = new Headers(response.headers);
+
+  newHeaders.set("Cache-Control", "no-store");
+  newHeaders.set(
     "Strict-Transport-Security",
     "max-age=63072000; includeSubDomains; preload"
   );
-  response.headers.set("X-Content-Type-Options", "nosniff");
-  response.headers.set("X-Frame-Options", "DENY");
-  response.headers.set("Referrer-Policy", "strict-origin-when-cross-origin");
-  response.headers.set(
+  newHeaders.set("X-Content-Type-Options", "nosniff");
+  newHeaders.set("X-Frame-Options", "DENY");
+  newHeaders.set("Referrer-Policy", "strict-origin-when-cross-origin");
+  newHeaders.set(
     "Permissions-Policy",
     "geolocation=(), camera=(), microphone=()"
   );
-  response.headers.set(
+  newHeaders.set(
     "Content-Security-Policy",
     "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';"
   );
 
-  return response;
+  return new Response(response.body, {
+    status: response.status,
+    headers: newHeaders,
+  });
 }
